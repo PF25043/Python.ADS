@@ -1,6 +1,6 @@
 idade = int(input('Qual a sua idade? '))
 while (idade>0):
-    sexo = input('Qual o seu sexo (M ou F)? ')
+    sexo = input ('Qual o seu sexo (M ou F)? ')
     if ((sexo == 'M') or (sexo == 'm')):
         print('Olá senhor, você possui {} anos'.format(idade))
     else:
