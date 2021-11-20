@@ -1,5 +1,5 @@
-Repositório criado para a finalidade de praticar e realizar exercídio na linguagem Python.
+Repositório criado para a prática e a realização de exercícios na linguagem Python.
 
-Curso: Analise e Desenvolvimento de Sistemas.
+Curso: Analise e Desenvolvimento de Sistemas
 
 Instituição: Uninter
