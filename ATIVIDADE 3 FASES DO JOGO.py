@@ -17,11 +17,11 @@ linha2 = ['*', '*', '*', '*']
 fase = 1
 continuar = 1
 
-def matrizF3():
+def matrizF4():
     linha1[0] = '_'
-    linha2[0] = '_'
-    linha2[1] = 'G'
-    linha2[2] = '_'
+    linha1[1] = '_'
+    linha1[2] = '_'
+    linha2[1] = 'R'
     matrizF3a = (linha1)
     matrizF3b = (linha2)
     print(matrizF3a)
@@ -31,22 +31,22 @@ def matrizF3():
 
 
 while True:
-    print('Bem vindo a faze 3!')
-    print('Na fase 3 o jogador deverá alocar : GATO, RATO E OSSO.')
-    matrizF3()
-    gato= int(input(print('Em qual posição você que alocar o GATO? ')))
-    while (gato != 1 and gato != 5 and gato != 7):
+    print('Bem vindo a faze 4!')
+    print('Na fase 4, o jogador deverá alocar: QUEIJO, QUEIJO, OSSO.')
+    matrizF4()
+    queijoA= int(input(print('Em qual posição você quer alocar o primeiro QUEIJO? ')))
+    while (queijoA != 1 and queijoA != 2 and queijoA != 3):
             print('Quarto indisponível!')
-            gato= int(input(print('Em qual posição você que alocar o GATO? ')))
-    rato= int(input(print('Em qual posição você que alocar o RATO? ')))
-    while (rato != 1 and rato != 5 and rato != 7 or gato==rato):
+            queijo= int(input(print('Em qual posição você quer alocar o primeiro QUEIJO? ')))
+    queijoB= int(input(print('Em qual posição você quer alocar o segundo QUEIJO? ')))
+    while (queijoB != 1 and queijoB != 2 and queijoB != 3 or queijoB==queijoA):
             print('Quarto indisponível!')
-            rato = int(input(print('Em qual posição você que alocar o RATO? ')))
-    osso= int(input(print('Em qual posição você que alocar o OSSO? ')))
-    while (osso != 1 and osso != 5 and osso != 7 or osso==rato or osso==gato):
+            queijoB= int(input(print('Em qual posição você quer alocar o segundo QUEIJO? ')))
+    osso= int(input(print('Em qual posição você quer alocar o OSSO? ')))
+    while (osso != 1 and osso != 2 and osso != 3 or osso==queijoB or osso==queijoA):
             print('Quarto indisponível!')
-            osso= int(input(print('Em qual posição você que alocar o OSSO? ')))
-    if(rato != 1 and osso!= 5 and gato!= 7):
+            osso= int(input(print('Em qual posição você quer alocar o OSSO? ')))
+    if( osso!= 2 ):
         print('Game Over!!!')
         print('Você perdeu... ')
         continuar = int(input(print('Deseja jogar novamente? 1 - SIM  0 - NÃO')))
@@ -54,8 +54,8 @@ while True:
             break
         else:
             separaFase()
-    elif (rato == 1 and osso == 5 and gato==7):
-        borda('Parabéns. Você Ganhou!!!')
+    else:
+        borda('Parabéns. VocÊ Ganhou!!!')
         break
 
 
