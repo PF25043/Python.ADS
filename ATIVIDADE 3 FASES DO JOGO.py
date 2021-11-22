@@ -1,39 +1,64 @@
-linha1=['*','*','*','*']
-linha2=['*','*','*','*']
-fase=2
-cont=1
-#Codigo acima não precisa retornar para o arquivo pricipal
+def separaFase():
+    print('         |  |')
+    print('         |  |')
+    print('         |  |')
+    print('         |  |')
+    print('        \    /')
+    print('         \  / ')
+    print('          \/ ')
+def borda(x):
+    tam = len(x)
+    if tam:
+        print('+', '-' * tam, '+')
+        print('|', x, '|')
+        print('+', '-' * tam, '+')
+linha1 = ['*', '*', '*', '*']
+linha2 = ['*', '*', '*', '*']
+fase = 1
+continuar = 1
 
-# ******************* Matriz fase 2
-linha1[0]='_'
-linha2[1]='C'
-linha2[2]='_'
-linha2[3]='_'
-matrizF2a=(linha1)
-matrizF2b=(linha2)
+def matrizF3():
+    linha1[0] = '_'
+    linha2[0] = '_'
+    linha2[1] = 'G'
+    linha2[2] = '_'
+    matrizF3a = (linha1)
+    matrizF3b = (linha2)
+    print(matrizF3a)
+    print(matrizF3b)
 
-print('Bem vindo a faze 2!')
-print('Na segunda fase o jogador deve alocar : CÃO, CÃO E OSSO')
-print(matrizF2a)
-print(matrizF2b)
-caoA= int(input(print('Em qual posição você que alocar o primeiro CÃO? ')))
-while (caoA != 1 and caoA != 7 and caoA != 8):
-    print('Quarto indisponível!')
-    caoA = int(input(print('Em qual posição você que alocar o primeiro CÃO? ')))
-caoB= int(input(print('Em qual posição você que alocar o segundo CÃO? ')))
-while (caoB != 1 and caoB != 7 and caoB != 8 or caoA==caoB):
-    print('Quarto indisponível!')
-    caoB = int(input(print('Em qual posição você que alocar o segundo CÃO? ')))
-osso= int(input(print('Em qual posição você que alocar o OSSO? ')))
-while (osso != 1 and osso != 7 and osso != 8 or osso==caoB or osso==caoA):
-    print('Quarto indisponível!')
+
+
+
+while True:
+    print('Bem vindo a faze 3!')
+    print('Na fase 3 o jogador deverá alocar : GATO, RATO E OSSO.')
+    matrizF3()
+    gato= int(input(print('Em qual posição você que alocar o GATO? ')))
+    while (gato != 1 and gato != 5 and gato != 7):
+            print('Quarto indisponível!')
+            gato= int(input(print('Em qual posição você que alocar o GATO? ')))
+    rato= int(input(print('Em qual posição você que alocar o RATO? ')))
+    while (rato != 1 and rato != 5 and rato != 7 or gato==rato):
+            print('Quarto indisponível!')
+            rato = int(input(print('Em qual posição você que alocar o RATO? ')))
     osso= int(input(print('Em qual posição você que alocar o OSSO? ')))
-if(osso!=1):
-    print('Game Over!!!')
-    print('Você perdeu...')
-else:
-    print('Parabéns. Você Ganhou!!!')
-    fase = 3
+    while (osso != 1 and osso != 5 and osso != 7 or osso==rato or osso==gato):
+            print('Quarto indisponível!')
+            osso= int(input(print('Em qual posição você que alocar o OSSO? ')))
+    if(rato != 1 and osso!= 5 and gato!= 7):
+        print('Game Over!!!')
+        print('Você perdeu... ')
+        continuar = int(input(print('Deseja jogar novamente? 1 - SIM  0 - NÃO')))
+        if (continuar == 0):
+            break
+        else:
+            separaFase()
+    elif (rato == 1 and osso == 5 and gato==7):
+        borda('Parabéns. Você Ganhou!!!')
+        break
 
-fase=3
-print('Bem vindo a faze 3!')
+
+
+
+
