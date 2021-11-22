@@ -25,7 +25,6 @@ print('O – OSSO')
 print('Q – QUEIJO')
 print('\n')
 
-#*******************************************
 def separaFase():
     print('         |  |')
     print('         |  |')
@@ -71,7 +70,6 @@ def matrizF4():
 
 
 # função fazes
-
 fase = 1
 cont= 1
 def primeiraFase():
