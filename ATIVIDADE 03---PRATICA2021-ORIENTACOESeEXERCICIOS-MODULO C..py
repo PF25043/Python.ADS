@@ -30,26 +30,51 @@ print(
 
 linha1=['*','*','*','*']
 linha2=['*','*','*','*']
-faze=1
-contFase=0
+fase=1
 continuar=1
 
-#programa principal
+def separaFase():
+    print('         |  |')
+    print('         |  |')
+    print('         |  |')
+    print('         |  |')
+    print('        \    /')
+    print('         \  / ')
+    print('          \/ ')
 
-#*********************************************** FASE 1
-#***** Matriz fase 1
-linha1[2]='_'
-linha1[3]='G'
-linha2[0]='R'
-linha2[1]='_'
-matrizF1a=(linha1)
-matrizF1b=(linha2)
+def borda(x):
+    tam = len(x)
+    if tam:
+        print('+', '-'*tam,'+')
+        print('|', x, '|')
+        print('+', '-' * tam, '+')
 
-while (faze==1 and continuar==1 and continuar!=0):
-    print('Bem vindo a faze 1!')
-    print('Na fase 1, o jogador deve alocar o RATO e o GATO na seguinte matriz que representa  os quartos:')
+def matrizF1():
+    linha1[2]='_'
+    linha1[3]='G'
+    linha2[0]='R'
+    linha2[1]='_'
+    matrizF1a=(linha1)
+    matrizF1b=(linha2)
     print(matrizF1a)
     print(matrizF1b)
+
+def matrizF2():
+    linha1[0] = '_'
+    linha2[1] = 'C'
+    linha2[2] = '_'
+    linha2[3] = '_'
+    matrizF2a = (linha1)
+    matrizF2b = (linha2)
+    print(matrizF2a)
+    print(matrizF2b)
+
+#programa principal
+#*********************************************** FASE 1
+while (fase==1):
+    print('Bem vindo a faze 1!')
+    print('Na fase 1, o jogador deve alocar o RATO e o GATO na seguinte matriz que representa  os quartos:')
+    matrizF1()
     rato= int(input(print('Em qual posição você que alocar o RATO? ')))
     while (rato!=3 and rato!=6):
             print('Quarto indisponível!')
@@ -63,21 +88,32 @@ while (faze==1 and continuar==1 and continuar!=0):
         print('Você perdeu...')
         continuar = int(input(print('Deseja jogar novamente? 1 - SIM  0 - NÃO')))
     elif(rato ==6 and gato==3):
-        print('Parabéns. Você Ganhou!!!')
-        contFase += 1
+        borda('Parabéns. Você Ganhou!!!')
+        fase = 2
 
-# ******************* Matriz fase 2
-linha1[0]='_'
-linha2[1]='C'
-linha2[2]='_'
-linha2[3]='_'
-matrizF2a=(linha1)
-matrizF2b=(linha2)
-while (faze==2 and continuar==1 and continuar!=0):
+#*********************************************** FASE 2
+separaFase()
 print('Bem vindo a faze 2!')
-print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-print(matrizF2a)
-print(matrizF2b)
+print('Na segunda fase o jogador deve alocar : CÃO, CÃO E OSSO')
+matrizF2()
+caoA= int(input(print('Em qual posição você que alocar o primeiro CÃO? ')))
+while (caoA != 1 and caoA != 7 and caoA != 8):
+    print('Quarto indisponível!')
+    caoA = int(input(print('Em qual posição você que alocar o primeiro CÃO? ')))
+caoB= int(input(print('Em qual posição você que alocar o segundo CÃO? ')))
+while (caoB != 1 and caoB != 7 and caoB != 8 or caoA==caoB):
+    print('Quarto indisponível!')
+    caoB = int(input(print('Em qual posição você que alocar o segundo CÃO? ')))
+osso= int(input(print('Em qual posição você que alocar o OSSO? ')))
+while (osso != 1 and osso != 7 and osso != 8 or osso==caoB or osso==caoA):
+    print('Quarto indisponível!')
+    osso= int(input(print('Em qual posição você que alocar o OSSO? ')))
+if(osso!=1):
+    print('Game Over!!!')
+    print('Você perdeu...')
+else:
+    print('Parabéns. Você Ganhou!!!')
+    fase = 3
 
 
 
